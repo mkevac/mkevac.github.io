@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="The HTML5 Herald" />
-<meta name="author" content="" /><meta property="og:title" content="Memory Mappings Limit" />
+<meta name="author" content="Marko Kevac" /><meta property="og:title" content="Memory Mappings Limit" />
 <meta property="og:description" content="We have some very strange memory corruption problem in one of our daemons. As one of the many approaches to find the bug, we have built and pushed to production this daemon, but without jemalloc, memory allocator library that we use in all our projects.
 Few hours after the release monitoring team reported an unusal amount of errors returned from the system. It happens that few percent of the requests returned &ldquo;out of memory&rdquo; error." />
 <meta property="og:type" content="article" />
@@ -36,6 +36,21 @@ Few hours after the release monitoring team reported an unusal amount of errors 
             </h1>
 
       <ul id="social-media">
+             <li>
+               <a href="https://github.com/mkevac" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/mkevac" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/mkevac" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
       </ul>
       
     </header>
@@ -124,6 +139,19 @@ root@cppbig31.ulan:~# cat /proc/sys/vm/max_map_count
     </footer>
 </div>
 <script src="/js/scripts.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155249787-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
 
 </body>
 
