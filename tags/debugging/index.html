@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Tags | Marko Kevac Home</title>
+<title>debugging | Marko Kevac Home</title>
 
 
 
@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="http://marko.kevac.org/tags/">
+<link rel="canonical" href="http://marko.kevac.org/tags/debugging/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -85,71 +85,27 @@
     <article>
       <div class="subtitle tags is-6 is-pulled-right">
         
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/dns/">dns</a></h1>
-      <div class="content">
         
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/networking/">networking</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/security/">security</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/talks/">talks</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/tls/">tls</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
+<a class="subtitle is-6" href="/tags/perf">#perf</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/performance">#performance</a>
+  
+  | <a class="subtitle is-6" href="/tags/debugging">#debugging</a>
+  
+
         
       </div>
       <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/debugging/">debugging</a></h1>
+      <h1 class="title"><a href="http://marko.kevac.org/posts/perf-and-stack-traces/">Perf and Stack Traces</a></h1>
       <div class="content">
+        I was wondering why perf record -g don't show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn't the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow.
         
+        <a class="button is-link" href="http://marko.kevac.org/posts/perf-and-stack-traces/" style="height:28px">
+          Read more
+        </a>
         
       </div>
     </article>
@@ -157,47 +113,28 @@
     <article>
       <div class="subtitle tags is-6 is-pulled-right">
         
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/perf/">perf</a></h1>
-      <div class="content">
         
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/performance/">performance</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
+<a class="subtitle is-6" href="/tags/gdb">#gdb</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/performance">#performance</a>
+  
+  | <a class="subtitle is-6" href="/tags/debugging">#debugging</a>
+  
+
         
       </div>
       <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/gdb/">gdb</a></h1>
+      <h1 class="title"><a href="http://marko.kevac.org/posts/whos-calling/">Who&#39;s Calling</a></h1>
       <div class="content">
+        Sometimes your program uses a lot of system time. Let's say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it's not always so obvious.
+GDB comes to the rescue. You can use catch syscall &lt;syscall&gt; and it will break when particular syscall is called.
         
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/linux/">linux</a></h1>
-      <div class="content">
-        
+        <a class="button is-link" href="http://marko.kevac.org/posts/whos-calling/" style="height:28px">
+          Read more
+        </a>
         
       </div>
     </article>

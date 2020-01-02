@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Tags | Marko Kevac Home</title>
+<title>Uninterruptible Sleep | Marko Kevac Home</title>
 
 
 
@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="http://marko.kevac.org/tags/">
+<link rel="canonical" href="http://marko.kevac.org/posts/uninterruptible-sleep/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -81,145 +81,67 @@
 </section>
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/linux">#linux</a>
+
+
+
+      
+    </div>
+    <h2 class="subtitle is-6">February 2, 2013</h2>
+    <h1 class="title">Uninterruptible Sleep</h1>
     
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/dns/">dns</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/networking/">networking</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/security/">security</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/talks/">talks</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/tls/">tls</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/debugging/">debugging</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/perf/">perf</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/performance/">performance</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/gdb/">gdb</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/linux/">linux</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
+    <div class="content">
+      <p>Sometimes you will see processes on your linux box that are in D state as shown by ps, top, htop or similar. D means uninterruptible sleep. As opposed to normal sleep, you can't do anything with these processes (i.e. kill them).
+Additional information could be found on <a href="http://lwn.net/Articles/288056/">LWN</a>.</p>
+<p>Usually this means that process is stuck reading or writing something to disk or NFS and remote site does not answer. But not always. I'v stumbled upon processes that periodically jump into D state and back. These are processes under heavy network load. Strange.</p>
+<p>While not been successful in finding out what is going on yet, I would like to share pointers how to dig deeper into these processes.</p>
+<h3 id="ps">ps</h3>
+<p>Familiar tool ps can tell us in what function inside kernel our process is sleeping.</p>
+<pre><code># ps -eo ppid,pid,user,stat,pcpu,comm,wchan:32
+</code></pre><p>Adding some bash magic will help us dealing with process that is constantly jumping between D, S and R states:</p>
+<pre><code># for x in $(seq 10000); do ps -eo ppid,pid,user,stat,pcpu,comm,wchan:32 | grep D | grep laccess | awk '{print $7}' | grep -v &quot;-&quot;; done;
+lock_sock_nested
+lock_sock_nested
+^C
+</code></pre><p>Ok, so our process is sleeping in kernel function called <code>lock_sock_nested</code>.</p>
+<h3 id="sysrq">sysrq</h3>
+<p>We can force linux kernel to dump backtraces for processes that are in D state. Information could be seen via <code>dmesg</code> utility or in <code>/var/log/messages</code> file.</p>
+<pre><code>echo w &gt; /proc/sysrq-trigger
+</code></pre><p>Again, with additional bash magic our command looks like this:</p>
+<pre><code>echo w &gt; /proc/sysrq-trigger; dmesg -c | less;
+</code></pre><p>This is how output looks like:</p>
+<pre><code>[688596.998782] SysRq : Show Blocked State
+[688596.999054]   task                        PC stack   pid father
+[688596.999101] laccessd      D 00000000ffffffff     0 26940  25632 0x00000000
+[688596.999104]  ffff88090885fdd8 0000000000000086 ffff8800282d3700 ffff88125a5b2380
+[688596.999107]  0000000000013700 ffff88090885ffd8 0000000000013700 ffff88090885ffd8
+[688596.999109]  0000000000013700 0000000000013700 0000000000013700 0000000000013700
+[688596.999111] Call Trace:
+[688596.999113] Inexact backtrace:
+[688596.999113]
+[688596.999122]  [&lt;ffffffff810467de&gt;] ? try_to_wake_up+0x1be/0x400
+[688596.999128]  [&lt;ffffffff8139cb13&gt;] ? schedule_timeout+0x143/0x240
+[688596.999133]  [&lt;ffffffff81059a30&gt;] ? process_timeout+0x0/0x10
+[688596.999136]  [&lt;ffffffff81135b23&gt;] ? ep_poll+0x153/0x240
+[688596.999139]  [&lt;ffffffff81046a20&gt;] ? default_wake_function+0x0/0x10
+[688596.999141]  [&lt;ffffffff81135ce4&gt;] ? sys_epoll_wait+0xd4/0xe0
+[688596.999146]  [&lt;ffffffff81002f7b&gt;] ? system_call_fastpath+0x16/0x1b
+</code></pre>
+      
+      <div class="related">
+</div>
+      
+    </div>
     
   </div>
 </section>
-<section class="section">
-  <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
+
+    <script src="/js/copycode.js"></script>
+
+
 
 <section class="section">
   <div class="container has-text-centered">

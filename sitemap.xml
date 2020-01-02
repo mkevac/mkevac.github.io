@@ -62,4 +62,54 @@
     <lastmod>2016-06-12T18:30:00+03:00</lastmod>
   </url>
   
+  <url>
+    <loc>http://marko.kevac.org/tags/debugging/</loc>
+    <lastmod>2014-06-19T12:33:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/tags/perf/</loc>
+    <lastmod>2014-06-19T12:33:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/posts/perf-and-stack-traces/</loc>
+    <lastmod>2014-06-19T12:33:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/tags/performance/</loc>
+    <lastmod>2014-06-19T12:33:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/tags/gdb/</loc>
+    <lastmod>2014-05-02T11:15:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/posts/whos-calling/</loc>
+    <lastmod>2014-05-02T11:15:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/tags/linux/</loc>
+    <lastmod>2014-05-02T10:05:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/posts/perf-on-latest-linux-kernel/</loc>
+    <lastmod>2014-05-02T10:05:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/posts/uninterruptible-sleep/</loc>
+    <lastmod>2013-02-02T10:07:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/posts/searching-for-a-position/</loc>
+    <lastmod>2012-06-30T10:07:00+03:00</lastmod>
+  </url>
+  
 </urlset>

@@ -56,5 +56,50 @@
       <description></description>
     </item>
     
+    <item>
+      <title>debugging</title>
+      <link>http://marko.kevac.org/tags/debugging/</link>
+      <pubDate>Thu, 19 Jun 2014 12:33:00 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/tags/debugging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>perf</title>
+      <link>http://marko.kevac.org/tags/perf/</link>
+      <pubDate>Thu, 19 Jun 2014 12:33:00 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/tags/perf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>performance</title>
+      <link>http://marko.kevac.org/tags/performance/</link>
+      <pubDate>Thu, 19 Jun 2014 12:33:00 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/tags/performance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gdb</title>
+      <link>http://marko.kevac.org/tags/gdb/</link>
+      <pubDate>Fri, 02 May 2014 11:15:00 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/tags/gdb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>http://marko.kevac.org/tags/linux/</link>
+      <pubDate>Fri, 02 May 2014 10:05:00 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/tags/linux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

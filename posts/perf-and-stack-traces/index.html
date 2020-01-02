@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Tags | Marko Kevac Home</title>
+<title>Perf and Stack Traces | Marko Kevac Home</title>
 
 
 
@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="http://marko.kevac.org/tags/">
+<link rel="canonical" href="http://marko.kevac.org/posts/perf-and-stack-traces/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -81,145 +81,55 @@
 </section>
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/perf">#perf</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/performance">#performance</a>
+  
+  | <a class="subtitle is-6" href="/tags/debugging">#debugging</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">June 19, 2014</h2>
+    <h1 class="title">Perf and Stack Traces</h1>
     
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/dns/">dns</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/networking/">networking</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/security/">security</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/talks/">talks</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/tls/">tls</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/debugging/">debugging</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/perf/">perf</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/performance/">performance</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/gdb/">gdb</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/linux/">linux</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
+    <div class="content">
+      <p>I was wondering why perf record -g don't show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn't the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow. So I have continued digging and stumbled upon <a href="http://lwn.net/Articles/379949/">article</a> where people bash one of the perf authors for not being able to unwind stacks without frame pointers.</p>
+<p>If you read thoroughly you can find out that gcc uses DWARF debugging information for stack unwinding, but it's too slow for profilers.</p>
+<p>So I wanted to know how much slower would my programs be if I include frame pointers. And seems that performance losses are <a href="http://dom.as/2009/07/26/on-binaries-and-fomit-frame-pointer/">negligible</a>:</p>
+<blockquote>
+<p>I tested two MySQL builds, one built with ‘-O3 -g -fno-omit-frame-pointer’ and other with -fomit-frame-pointer instead – and performance difference was negligible. It was around 1% in sysbench tests, and slightly over 3% at tight-loop select benchmark(100000000,(select asin(5+5)+sin(5+5))); on a 2-cpu Opteron box.</p>
+</blockquote>
+<p>So I will try including frame pointers from now on. To include them, use -fno-omit-frame-pointers gcc parameter when building executable.</p>
+<p>If you are interested what frame pointers are and how they work, I would recommend reading answer to <a href="http://stackoverflow.com/questions/13006371/does-omitting-the-frame-pointers-really-have-a-positive-effect-on-performance-an">this</a> stackoverflow question.</p>
+
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/whos-calling/">Who&#39;s Calling</a></li>
+	
+	<li><a href="/posts/perf-on-latest-linux-kernel/">Perf on Latest Linux Kernel</a></li>
+	
+	<li><a href="/posts/searching-for-a-position/">Searching for a position of set bits in a variable</a></li>
+	
+</ul>
+</div>
+      
+    </div>
     
   </div>
 </section>
-<section class="section">
-  <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
+
+
 
 <section class="section">
   <div class="container has-text-centered">

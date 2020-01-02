@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Tags | Marko Kevac Home</title>
+<title>Who&#39;s Calling | Marko Kevac Home</title>
 
 
 
@@ -15,7 +15,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="canonical" href="http://marko.kevac.org/tags/">
+<link rel="canonical" href="http://marko.kevac.org/posts/whos-calling/">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 </head>
@@ -81,145 +81,65 @@
 </section>
 <section class="section">
   <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/gdb">#gdb</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/performance">#performance</a>
+  
+  | <a class="subtitle is-6" href="/tags/debugging">#debugging</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">May 2, 2014</h2>
+    <h1 class="title">Who&#39;s Calling</h1>
     
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/dns/">dns</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/networking/">networking</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/security/">security</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/talks/">talks</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">January 2, 2020</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/tls/">tls</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/debugging/">debugging</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/perf/">perf</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">June 19, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/performance/">performance</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/gdb/">gdb</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
-    
-    <article>
-      <div class="subtitle tags is-6 is-pulled-right">
-        
-      </div>
-      <h2 class="subtitle is-6 date">May 2, 2014</h2>
-      <h1 class="title"><a href="http://marko.kevac.org/tags/linux/">linux</a></h1>
-      <div class="content">
-        
-        
-      </div>
-    </article>
+    <div class="content">
+      <p>Sometimes your program uses a lot of system time. Let's say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it's not always so obvious.</p>
+<p>GDB comes to the rescue. You can use <code>catch syscall &lt;syscall&gt;</code> and it will break when particular syscall is called. And then you can use &lsquo;bt&rsquo; to find where in your code this syscall is being called from.</p>
+<pre><code>(gdb)&gt; catch syscall futex
+
+(gdb)&gt; c
+Continuing.
+[Switching to Thread 0x7ffff3ffc700 (LWP 14893)]
+
+Catchpoint 1 (call to syscall futex), 0x00007ffff76ce779 in __lll_unlock_wake_private () from /lib64/libc.so.6
+
+(gdb)&gt; bt
+#0  0x00007ffff76ce779 in __lll_unlock_wake_private () from /lib64/libc.so.6
+#1  0x00007ffff76060fc in _L_unlock_147 () from /lib64/libc.so.6
+#2  0x00007ffff7606006 in random () from /lib64/libc.so.6
+#3  0x000000000040154c in thread_worker (ctx=0x0) at memorytest.c:90
+#4  0x00007ffff7992f33 in start_thread () from /lib64/libpthread.so.0
+#5  0x00007ffff76c0ded in clone () from /lib64/libc.so.6
+</code></pre><p>P.S. Don't use random() in multi-threaded program. Use random_r().</p>
+
+      
+      <div class="related">
+
+<h3>Similar articles:</h3>
+<ul>
+	
+	<li><a href="/posts/perf-on-latest-linux-kernel/">Perf on Latest Linux Kernel</a></li>
+	
+	<li><a href="/posts/searching-for-a-position/">Searching for a position of set bits in a variable</a></li>
+	
+</ul>
+</div>
+      
+    </div>
     
   </div>
 </section>
-<section class="section">
-  <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
+
+    <script src="/js/copycode.js"></script>
+
+
 
 <section class="section">
   <div class="container has-text-centered">
