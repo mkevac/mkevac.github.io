@@ -1,26 +1,132 @@
-<!DOCTYPE html>
-<html><meta charset="utf-8"><meta name="generator" content="Hugo 0.62.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light only">
-<meta name="supported-color-schemes" content="light only"><title>Encrypted DNS&nbsp;&ndash;&nbsp;Marko Kevac Home</title><link rel="stylesheet" href="/css/core.min.d9711af52b4a9f03cadf855745b58b99b11663ee0cd05b260696b78838016d0481c779fec0944c9dd9763b9560cd88c6.css" integrity="sha384-2XEa9StKnwPK34VXRbWLmbEWY&#43;4M0FsmBpa3iDgBbQSBx3n&#43;wJRMndl2O5VgzYjG"><body>
-<div class="base-body max-width"><section id="header" class="header max-body-width"><p><a class="home" href="/"><span class="site-name">Marko Kevac Home</span></a></p></section><div id="content" class="flex-body max-body-width"><section class="article-header">
-<h1>Encrypted DNS</h1>
-<p class="article-date">2020-01-02</p>
-</section>
-<article class="markdown-body">
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>Marko Kevac Home</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Encrypted DNS" />
+<meta property="og:description" content="This is a bunch of notes taken from “DNS over HTTPS considerations” by Bert Hubert.
+It’s an amazing talk and I recommend watching it. It covers the history of DNS security, privacy considerations, state-of-the-art and what awaits us in the future.
+ DNS is one of the oldest text protocols that are still widely used. Almost everything else we encrypted already.
+There have been four tries to encrypt DNS:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://marko.kevac.org/posts/encrypted-dns/" />
+<meta property="article:published_time" content="2020-01-02T16:44:49+03:00" />
+<meta property="article:modified_time" content="2020-01-02T16:44:49+03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Encrypted DNS"/>
+<meta name="twitter:description" content="This is a bunch of notes taken from “DNS over HTTPS considerations” by Bert Hubert.
+It’s an amazing talk and I recommend watching it. It covers the history of DNS security, privacy considerations, state-of-the-art and what awaits us in the future.
+ DNS is one of the oldest text protocols that are still widely used. Almost everything else we encrypted already.
+There have been four tries to encrypt DNS:"/>
+
+<meta name="generator" content="Hugo 0.62.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://marko.kevac.org/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">Marko Kevac Home</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Encrypted DNS</h1>
+
+    
+    <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-01-02T16:44:49&#43;03:00">Jan 2, 2020</time>
+        </li>
+        
+        <li>
+            Categories:
+            <em>
+                
+                    
+                    <a href="/categories/notes">notes</a>
+                
+                    , 
+                    <a href="/categories/talks">talks</a>
+                
+            </em>
+        </li>
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/dns">#dns</a>
+                
+                    , 
+                    <a href="/tags/networking">#networking</a>
+                
+                    , 
+                    <a href="/tags/security">#security</a>
+                
+                    , 
+                    <a href="/tags/tls">#tls</a>
+                
+                    , 
+                    <a href="/tags/talks">#talks</a>
+                
+            </em>
+        </li>
+        
+
+        <li>3 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+    
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/pjin3nv8jAo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<p>This is a bunch of notes taken from <a href="https://www.youtube.com/watch?v=pjin3nv8jAo"target="_blank">“DNS over HTTPS considerations”</a> by Bert Hubert.</p>
+<p>This is a bunch of notes taken from <a href="https://www.youtube.com/watch?v=pjin3nv8jAo">“DNS over HTTPS considerations”</a> by Bert Hubert.</p>
 <p>It’s an amazing talk and I recommend watching it. It covers the history of DNS security, privacy considerations, state-of-the-art and what awaits us in the future.</p>
 <hr>
 <p>DNS is one of the oldest text protocols that are still widely used. Almost everything else we encrypted already.</p>
 <p>There have been four tries to encrypt DNS:</p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions"target="_blank">DNSSEC</a> 1998-2015</li>
-<li><a href="https://en.wikipedia.org/wiki/DNSCurve"target="_blank">DNSCurve/DNSCrypto</a> 2009</li>
-<li><a href="https://en.wikipedia.org/wiki/DNS_over_TLS"target="_blank">DNS over TLS</a> 2015</li>
-<li><a href="https://en.wikipedia.org/wiki/DNS_over_HTTPS"target="_blank">DNS over HTTPS</a> 2018</li>
+<li><a href="https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions">DNSSEC</a> 1998-2015</li>
+<li><a href="https://en.wikipedia.org/wiki/DNSCurve">DNSCurve/DNSCrypto</a> 2009</li>
+<li><a href="https://en.wikipedia.org/wiki/DNS_over_TLS">DNS over TLS</a> 2015</li>
+<li><a href="https://en.wikipedia.org/wiki/DNS_over_HTTPS">DNS over HTTPS</a> 2018</li>
 </ul>
 <p>None of them got traction for various reasons. But recently there has been a push to improve users&rsquo; privacy.</p>
 <hr>
@@ -31,8 +137,8 @@ It’s similar to phone calls. You can encrypt audio, but your operator will kno
 <ul>
 <li>HTTP attempts</li>
 <li>DNS lookups</li>
-<li><a href="https://en.wikipedia.org/wiki/Server_Name_Indication"target="_blank">(e)SNI</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol"target="_blank">OCSP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Server_Name_Indication">(e)SNI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol">OCSP</a></li>
 <li>IP address</li>
 </ul>
 <p><strong>HTTP attempts</strong>. Often you would first go to unsecured plain text site and then be redirected to secure one. But the site you are going to has already been leaked.</p>
@@ -50,11 +156,41 @@ It’s similar to phone calls. You can encrypt audio, but your operator will kno
 <li>Security monitoring. Pretty much the same thing, but done as a privacy thing in a corporate environment for example.</li>
 <li>CDN performance. It would be harder to send your request to your nearest servers for speed improvement.</li>
 <li>Split horizon/VPN. If you are using VPN to tunnel into the private network then DNS requests for your private sites will go to Google or Cloudflare and they would learn about the names of your private sites.</li>
-<li>Your privacy. Non-Americans have no privacy expectations according to <a href="https://en.wikipedia.org/wiki/Foreign_Intelligence_Surveillance_Act_of_1978_Amendments_Act_of_2008"target="_blank">FISA 702</a> law. And both Google and Cloudflare are US companies.</li>
+<li>Your privacy. Non-Americans have no privacy expectations according to <a href="https://en.wikipedia.org/wiki/Foreign_Intelligence_Surveillance_Act_of_1978_Amendments_Act_of_2008">FISA 702</a> law. And both Google and Cloudflare are US companies.</li>
 </ul>
 <p>There is a potential to track users with DNS over HTTP because of a persistence feature that speeds up encryption (resumption cookies). You can disable this feature sometimes, but there is always a tradeoff between simplicity and privacy.</p>
-</article><section class="article-labels"><a class="article-category li" href=/categories/notes/><span class="hashtag">#</span>notes</a><a class="article-category li" href=/categories/talks/><span class="hashtag">#</span>talks</a><a class="article-tag li" href=/tags/dns/><span class="hashtag">#</span>dns</a><a class="article-tag li" href=/tags/networking/><span class="hashtag">#</span>networking</a><a class="article-tag li" href=/tags/security/><span class="hashtag">#</span>security</a><a class="article-tag li" href=/tags/tls/><span class="hashtag">#</span>tls</a><a class="article-tag li" href=/tags/talks/><span class="hashtag">#</span>talks</a></section><section class="article-navigation"><p><a class="link" href="/posts/new-blog/"><span class="li"></span>New Blog (Hello World)</a class="link"></p></section></div><section id="footer" class="footer max-body-width"><p>Marko Kevac Home</p>
-<p><span>Powered by </span><a href="https://gohugo.io">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/">Notepadium</a></p>
-</section><script src="/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js" integrity="sha384-B5k0ipHc4Sxr5Kc/lDz&#43;ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU"></script><script>hljs.initHighlightingOnLoad();</script></div>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="http://marko.kevac.org/posts/new-blog/"><i class="fa fa-chevron-circle-left"></i> New Blog (Hello World)</a>
+        </li>
+        
+        
+    </ul>
+</section>
+    
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://marko.kevac.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
 </body>
+
 </html>
+

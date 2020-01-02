@@ -1,19 +1,87 @@
-<!DOCTYPE html>
-<html><meta charset="utf-8"><meta name="generator" content="Hugo 0.62.0" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="light only">
-<meta name="supported-color-schemes" content="light only"><title>Memory Mappings Limit&nbsp;&ndash;&nbsp;Marko Kevac Home</title><link rel="stylesheet" href="/css/core.min.d9711af52b4a9f03cadf855745b58b99b11663ee0cd05b260696b78838016d0481c779fec0944c9dd9763b9560cd88c6.css" integrity="sha384-2XEa9StKnwPK34VXRbWLmbEWY&#43;4M0FsmBpa3iDgBbQSBx3n&#43;wJRMndl2O5VgzYjG"><body>
-<div class="base-body max-width"><section id="header" class="header max-body-width"><p><a class="home" href="/"><span class="site-name">Marko Kevac Home</span></a></p></section><div id="content" class="flex-body max-body-width"><section class="article-header">
-<h1>Memory Mappings Limit</h1>
-<p class="article-date">2016-06-12</p>
-</section>
-<article class="markdown-body"><p>We have some very strange memory corruption problem in one of our daemons. As one of the many approaches to find the bug, we have built and pushed to production this daemon, but without <a href="http://jemalloc.net/"target="_blank">jemalloc</a>, memory allocator library that we use in all our projects.</p>
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+  <title>Marko Kevac Home</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Memory Mappings Limit" />
+<meta property="og:description" content="We have some very strange memory corruption problem in one of our daemons. As one of the many approaches to find the bug, we have built and pushed to production this daemon, but without jemalloc, memory allocator library that we use in all our projects.
+Few hours after the release monitoring team reported an unusal amount of errors returned from the system. It happens that few percent of the requests returned &ldquo;out of memory&rdquo; error." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://marko.kevac.org/posts/memory-mappings-limit/" />
+<meta property="article:published_time" content="2016-06-12T18:30:00+03:00" />
+<meta property="article:modified_time" content="2016-06-12T18:30:00+03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Memory Mappings Limit"/>
+<meta name="twitter:description" content="We have some very strange memory corruption problem in one of our daemons. As one of the many approaches to find the bug, we have built and pushed to production this daemon, but without jemalloc, memory allocator library that we use in all our projects.
+Few hours after the release monitoring team reported an unusal amount of errors returned from the system. It happens that few percent of the requests returned &ldquo;out of memory&rdquo; error."/>
+
+<meta name="generator" content="Hugo 0.62.0" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="http://marko.kevac.org/fontawesome/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">Marko Kevac Home</a>
+            </h1>
+
+      <ul id="social-media">
+      </ul>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+    </ul>
+</nav>
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Memory Mappings Limit</h1>
+
+    
+    <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2016-06-12T18:30:00&#43;03:00">Jun 12, 2016</time>
+        </li>
+        
+
+        
+
+        <li>2 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+    <p>We have some very strange memory corruption problem in one of our daemons. As one of the many approaches to find the bug, we have built and pushed to production this daemon, but without <a href="http://jemalloc.net/">jemalloc</a>, memory allocator library that we use in all our projects.</p>
 <p>Few hours after the release monitoring team reported an unusal amount of errors returned from the system. It happens that few percent of the requests returned &ldquo;out of memory&rdquo; error. It was strange because there were a lot of a memory available in the system.</p>
-<p>Output of a <a href="http://man7.org/linux/man-pages/man1/strace.1.html"target="_blank">strace</a> utility showed that <a href="http://man7.org/linux/man-pages/man2/mprotect.2.html"target="_blank">mprotect()</a> call that we use to install a guard page for a coroutines stack returns an error:</p>
+<p>Output of a <a href="http://man7.org/linux/man-pages/man1/strace.1.html">strace</a> utility showed that <a href="http://man7.org/linux/man-pages/man2/mprotect.2.html">mprotect()</a> call that we use to install a guard page for a coroutines stack returns an error:</p>
 <pre><code>strace -emprotect -ttt -T -p 25754 -c
 
 1438269965.801936 mmap(NULL, 69632, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f73baf9c000 &lt;0.000092&gt;
 1438269965.802065 mprotect(0x7f73baf9c000, 4096, PROT_NONE) = -1 ENOMEM (Cannot allocate memory) &lt;0.000005&gt;
-</code></pre><p>First we thought that this could not happen because <a href="http://man7.org/linux/man-pages/man2/mmap.2.html"target="_blank">mmap</a> returned without an error and that something is wrong with the kernel we are using. Especially because this particular machine have very old kernel</p>
+</code></pre><p>First we thought that this could not happen because <a href="http://man7.org/linux/man-pages/man2/mmap.2.html">mmap</a> returned without an error and that something is wrong with the kernel we are using. Especially because this particular machine have very old kernel</p>
 <pre><code># uname -a
 Linux cppbig31 3.0.82-0.7.99-default #1 SMP Thu Jun 27 13:19:18 UTC 2013 (6efde93) x86_64 x86_64 x86_64 GNU/Linux
 </code></pre><p>But brief googling and kernel source gave us a much more simple answer: memory mappings limit. mmap() call creates a map, mprotect() can split one mapping into two. And we have a lot of these calls.</p>
@@ -26,8 +94,38 @@ root@cppbig31.ulan:~# cat /proc/sys/vm/max_map_count
 1938
 </code></pre><p>This is how one can increase the limit:</p>
 <pre><code>echo &quot;655300&quot; &gt; /proc/sys/vm/max_map_count
-</code></pre></article><section class="article-navigation"><p><a class="link" href="/posts/ssh-exchange-identification/"><span class="li"></span>ssh_exchange_identification connection reset by peer problem</a></p></section></div><section id="footer" class="footer max-body-width"><p>Marko Kevac Home</p>
-<p><span>Powered by </span><a href="https://gohugo.io">Hugo</a><span> and the </span><a href="https://themes.gohugo.io/hugo-notepadium/">Notepadium</a></p>
-</section><script src="/js/hljs.min.0799348a91dce12c6be4a73f943cfe78f181f4e6f6ec35c4af0fca1de377879f77cfab03c30f03a174d675737b5a9314.js" integrity="sha384-B5k0ipHc4Sxr5Kc/lDz&#43;ePGB9Ob27DXErw/KHeN3h593z6sDww8DoXTWdXN7WpMU"></script><script>hljs.initHighlightingOnLoad();</script></div>
+</code></pre>
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        
+        <li>
+            <a href="http://marko.kevac.org/posts/ssh-exchange-identification/">ssh_exchange_identification connection reset by peer problem <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+    
+    
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="http://marko.kevac.org/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="/js/scripts.js"></script>
+
 </body>
+
 </html>
+

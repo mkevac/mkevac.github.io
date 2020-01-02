@@ -1,60 +1,132 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tags on Marko Kevac Home</title>
-    <link>http://marko.kevac.org/tags/</link>
-    <description>Recent content in Tags on Marko Kevac Home</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jan 2020 16:44:49 +0300</lastBuildDate>
-    
-	<atom:link href="http://marko.kevac.org/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>dns</title>
-      <link>http://marko.kevac.org/tags/dns/</link>
-      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
-      
-      <guid>http://marko.kevac.org/tags/dns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>networking</title>
-      <link>http://marko.kevac.org/tags/networking/</link>
-      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
-      
-      <guid>http://marko.kevac.org/tags/networking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>http://marko.kevac.org/tags/security/</link>
-      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
-      
-      <guid>http://marko.kevac.org/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>talks</title>
-      <link>http://marko.kevac.org/tags/talks/</link>
-      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
-      
-      <guid>http://marko.kevac.org/tags/talks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tls</title>
-      <link>http://marko.kevac.org/tags/tls/</link>
-      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
-      
-      <guid>http://marko.kevac.org/tags/tls/</guid>
-      <description></description>
-    </item>
-    
-  </channel>
+ <channel>
+   <title>Tags on Marko Kevac Home</title>
+   <link>http://marko.kevac.org/tags/</link>
+   <description>Recent content in Tags on Marko Kevac Home</description>
+   <generator>Hugo -- gohugo.io</generator>
+   <language>en-us</language>
+   <lastBuildDate>Thu, 02 Jan 2020 16:44:49 +0300</lastBuildDate>
+   
+       <atom:link href="http://marko.kevac.org/tags/index.xml" rel="self" type="application/rss+xml" />
+   
+   
+     <item>
+       <title>Encrypted DNS</title>
+       <link>http://marko.kevac.org/posts/encrypted-dns/</link>
+       <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
+       
+       <guid>http://marko.kevac.org/posts/encrypted-dns/</guid>
+       <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/pjin3nv8jAo&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This is a bunch of notes taken from &lt;a href=&#34;https://www.youtube.com/watch?v=pjin3nv8jAo&#34;&gt;“DNS over HTTPS considerations”&lt;/a&gt; by Bert Hubert.&lt;/p&gt;
+&lt;p&gt;It’s an amazing talk and I recommend watching it. It covers the history of DNS security, privacy considerations, state-of-the-art and what awaits us in the future.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;DNS is one of the oldest text protocols that are still widely used. Almost everything else we encrypted already.&lt;/p&gt;
+&lt;p&gt;There have been four tries to encrypt DNS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Domain_Name_System_Security_Extensions&#34;&gt;DNSSEC&lt;/a&gt; 1998-2015&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/DNSCurve&#34;&gt;DNSCurve/DNSCrypto&lt;/a&gt; 2009&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/DNS_over_TLS&#34;&gt;DNS over TLS&lt;/a&gt; 2015&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/DNS_over_HTTPS&#34;&gt;DNS over HTTPS&lt;/a&gt; 2018&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;None of them got traction for various reasons. But recently there has been a push to improve users&amp;rsquo; privacy.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;You can use HTTPS and nobody will know what you are looking at, but the site you are using will be know because DNS is unencrypted.
+It’s similar to phone calls. You can encrypt audio, but your operator will know who you are talking to. And that can be enough to lose your privacy.&lt;/p&gt;
+&lt;p&gt;DNS is not the only thing that leaks data about what site you are using. There are more leak vectors.&lt;/p&gt;
+&lt;p&gt;Metadata privacy leaks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP attempts&lt;/li&gt;
+&lt;li&gt;DNS lookups&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Server_Name_Indication&#34;&gt;(e)SNI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol&#34;&gt;OCSP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;IP address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;HTTP attempts&lt;/strong&gt;. Often you would first go to unsecured plain text site and then be redirected to secure one. But the site you are going to has already been leaked.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DNS lookups&lt;/strong&gt;. If your DNS lookups are not encrypted, you leak names of sites you are going to.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;(e)SNI&lt;/strong&gt;. One IP address can host several HTTPS sites and the way to tell which site you want is to use SNI and SNI is not encrypted.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OCSP&lt;/strong&gt;. Browsers must check whether HTTPS certificate is valid or not and they use OCSP for that and, guess what, OCSP is not encrypted.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IP address&lt;/strong&gt;. One IP address can host thousands of sites, but in reality, it’s often the case that it’s easy to map an IP address to the site name.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;You can set up a tunnel to someone you trust. But then they will know all of this.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Browsers want to stop using user’s DNS servers and use Google’s or Cloudflare’s DNS servers over HTTPS to ensure that requests are private. Sometimes they call this DNS over Cloud.&lt;/p&gt;
+&lt;p&gt;Things that can break:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Security filtering. Some filters block ads or other bad sites according to DNS names. They will stop working&lt;/li&gt;
+&lt;li&gt;Security monitoring. Pretty much the same thing, but done as a privacy thing in a corporate environment for example.&lt;/li&gt;
+&lt;li&gt;CDN performance. It would be harder to send your request to your nearest servers for speed improvement.&lt;/li&gt;
+&lt;li&gt;Split horizon/VPN. If you are using VPN to tunnel into the private network then DNS requests for your private sites will go to Google or Cloudflare and they would learn about the names of your private sites.&lt;/li&gt;
+&lt;li&gt;Your privacy. Non-Americans have no privacy expectations according to &lt;a href=&#34;https://en.wikipedia.org/wiki/Foreign_Intelligence_Surveillance_Act_of_1978_Amendments_Act_of_2008&#34;&gt;FISA 702&lt;/a&gt; law. And both Google and Cloudflare are US companies.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There is a potential to track users with DNS over HTTP because of a persistence feature that speeds up encryption (resumption cookies). You can disable this feature sometimes, but there is always a tradeoff between simplicity and privacy.&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>New Blog (Hello World)</title>
+       <link>http://marko.kevac.org/posts/new-blog/</link>
+       <pubDate>Sun, 29 Dec 2019 00:31:40 +0300</pubDate>
+       
+       <guid>http://marko.kevac.org/posts/new-blog/</guid>
+       <description>&lt;p&gt;I&#39;ve decided to rekindle my blog as my New Year&#39;s resolution. I am going to leave Google&#39;s Blogger behind and switch to a static site generated by &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. You are reading a first post in a new blog. Welcome!&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>ssh_exchange_identification connection reset by peer problem</title>
+       <link>http://marko.kevac.org/posts/ssh-exchange-identification/</link>
+       <pubDate>Thu, 22 Sep 2016 14:08:00 +0300</pubDate>
+       
+       <guid>http://marko.kevac.org/posts/ssh-exchange-identification/</guid>
+       <description>&lt;p&gt;At &lt;a href=&#34;https://badoo.com&#34;&gt;Badoo&lt;/a&gt; we have a distributed system that uses ssh on start to connect to each node and exchange some data.&lt;/p&gt;
+&lt;p&gt;Sometimes I&#39;ve seen ssh fail with error&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh_exchange_identification: read: Connection reset by peer error
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Usually, If you see this error, it means that server didn&#39;t like your certificate or you were banned from accessing this server.&lt;/p&gt;
+&lt;p&gt;The best way to debug this problem is to append &lt;code&gt;-vvv&lt;/code&gt; while executing ssh client to increase verbosity and to do the same on server.&lt;/p&gt;
+&lt;p&gt;If your Linux distribution uses systemd, then the best way to look into sshd logs is &lt;code&gt;journalctl -f&lt;/code&gt; command or specifically &lt;code&gt;journalctl -u sshd.service -f&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;To increase ssd verbosity, edit &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; and add &lt;code&gt;LogLevel DEBUG3&lt;/code&gt; and then restart sshd with command &lt;code&gt;sudo systemctl restart ssd.service&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Unfortunately, logs didn&#39;t show anything useful for me.&lt;/p&gt;
+&lt;p&gt;But I had a hunch that it is somehow connected to the fact that our distributed system makes a lot of ssh connections and very rapidly.&lt;/p&gt;
+&lt;p&gt;While browsing trough &lt;code&gt;sshd_config&lt;/code&gt; man page I&#39;ve found config variable that could be to blame. And I was right.&lt;/p&gt;
+&lt;p&gt;If you happen to have the same problem I did, try increasing &lt;code&gt;MaxStartups&lt;/code&gt; variable and restarting sshd service.&lt;/p&gt;
+&lt;p&gt;I&#39;ve increased it to 100:30:600 from default 10:30:60 and connection resets vanished.&lt;/p&gt;
+&lt;p&gt;It is unfortunate that ssh and sshd logs gave me no clue about the problem.&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Memory Mappings Limit</title>
+       <link>http://marko.kevac.org/posts/memory-mappings-limit/</link>
+       <pubDate>Sun, 12 Jun 2016 18:30:00 +0300</pubDate>
+       
+       <guid>http://marko.kevac.org/posts/memory-mappings-limit/</guid>
+       <description>&lt;p&gt;We have some very strange memory corruption problem in one of our daemons. As one of the many approaches to find the bug, we have built and pushed to production this daemon, but without &lt;a href=&#34;http://jemalloc.net/&#34;&gt;jemalloc&lt;/a&gt;, memory allocator library that we use in all our projects.&lt;/p&gt;
+&lt;p&gt;Few hours after the release monitoring team reported an unusal amount of errors returned from the system. It happens that few percent of the requests returned &amp;ldquo;out of memory&amp;rdquo; error. It was strange because there were a lot of a memory available in the system.&lt;/p&gt;
+&lt;p&gt;Output of a &lt;a href=&#34;http://man7.org/linux/man-pages/man1/strace.1.html&#34;&gt;strace&lt;/a&gt; utility showed that &lt;a href=&#34;http://man7.org/linux/man-pages/man2/mprotect.2.html&#34;&gt;mprotect()&lt;/a&gt; call that we use to install a guard page for a coroutines stack returns an error:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;strace -emprotect -ttt -T -p 25754 -c
+
+1438269965.801936 mmap(NULL, 69632, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f73baf9c000 &amp;lt;0.000092&amp;gt;
+1438269965.802065 mprotect(0x7f73baf9c000, 4096, PROT_NONE) = -1 ENOMEM (Cannot allocate memory) &amp;lt;0.000005&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;First we thought that this could not happen because &lt;a href=&#34;http://man7.org/linux/man-pages/man2/mmap.2.html&#34;&gt;mmap&lt;/a&gt; returned without an error and that something is wrong with the kernel we are using. Especially because this particular machine have very old kernel&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# uname -a
+Linux cppbig31 3.0.82-0.7.99-default #1 SMP Thu Jun 27 13:19:18 UTC 2013 (6efde93) x86_64 x86_64 x86_64 GNU/Linux
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But brief googling and kernel source gave us a much more simple answer: memory mappings limit. mmap() call creates a map, mprotect() can split one mapping into two. And we have a lot of these calls.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root@cppbig31.ulan:~# cat /proc/25754/maps | wc -l
+65523
+root@cppbig31.ulan:~# cat /proc/sys/vm/max_map_count
+65530
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;libc memory allocator seems to be another source of a maps because similar daemon with jemalloc doesn&#39;t use so much mappings:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# cat /proc/5667/maps | wc -l
+1938
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This is how one can increase the limit:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;655300&amp;quot; &amp;gt; /proc/sys/vm/max_map_count
+&lt;/code&gt;&lt;/pre&gt;</description>
+     </item>
+   
+ </channel>
 </rss>
