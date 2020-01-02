@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://marko.kevac.org/categories/</loc>
-    <lastmod>2020-01-02T16:44:49+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://marko.kevac.org/tags/dns/</loc>
     <lastmod>2020-01-02T16:44:49+03:00</lastmod>
   </url>
@@ -28,11 +23,6 @@
   </url>
   
   <url>
-    <loc>http://marko.kevac.org/categories/notes/</loc>
-    <lastmod>2020-01-02T16:44:49+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://marko.kevac.org/posts/</loc>
     <lastmod>2020-01-02T16:44:49+03:00</lastmod>
   </url>
@@ -44,11 +34,6 @@
   
   <url>
     <loc>http://marko.kevac.org/tags/</loc>
-    <lastmod>2020-01-02T16:44:49+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://marko.kevac.org/categories/talks/</loc>
     <lastmod>2020-01-02T16:44:49+03:00</lastmod>
   </url>
   
