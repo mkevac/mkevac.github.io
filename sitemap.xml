@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>/</loc><lastmod>2019-12-29T00:31:40+03:00</lastmod></url><url>
+    <loc>/categories/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/tags/dns/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/posts/encrypted-dns/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/tags/networking/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/categories/notes/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/posts/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/tags/security/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/tags/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/categories/talks/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/tags/talks/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
+    <loc>/tags/tls/</loc><lastmod>2020-01-02T16:44:49+03:00</lastmod></url><url>
     <loc>/posts/new-blog/</loc><lastmod>2019-12-29T00:31:40+03:00</lastmod></url><url>
-    <loc>/posts/</loc><lastmod>2019-12-29T00:31:40+03:00</lastmod></url><url>
     <loc>/posts/ssh-exchange-identification/</loc><lastmod>2016-09-22T14:08:00+03:00</lastmod></url><url>
-    <loc>/posts/memory-mappings-limit/</loc><lastmod>2016-06-12T18:30:00+03:00</lastmod></url><url>
-    <loc>/categories/</loc></url><url>
-    <loc>/tags/</loc></url></urlset>
+    <loc>/posts/memory-mappings-limit/</loc><lastmod>2016-06-12T18:30:00+03:00</lastmod></url></urlset>

@@ -6,9 +6,28 @@
     <description>Recent content in Categories on Marko Kevac Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Thu, 02 Jan 2020 16:44:49 +0300</lastBuildDate>
     
 	<atom:link href="http://marko.kevac.org/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>notes</title>
+      <link>http://marko.kevac.org/categories/notes/</link>
+      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>talks</title>
+      <link>http://marko.kevac.org/categories/talks/</link>
+      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/categories/talks/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

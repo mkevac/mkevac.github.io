@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>talks on Marko Kevac Home</title>
+    <link>http://marko.kevac.org/tags/talks/</link>
+    <description>Recent content in talks on Marko Kevac Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Jan 2020 16:44:49 +0300</lastBuildDate>
+    
+	<atom:link href="http://marko.kevac.org/tags/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Encrypted DNS</title>
+      <link>http://marko.kevac.org/posts/encrypted-dns/</link>
+      <pubDate>Thu, 02 Jan 2020 16:44:49 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/posts/encrypted-dns/</guid>
+      <description>This is a bunch of notes taken from “DNS over HTTPS considerations” by Bert Hubert.
+It’s an amazing talk and I recommend watching it. It covers the history of DNS security, privacy considerations, state-of-the-art and what awaits us in the future.
+ DNS is one of the oldest text protocols that are still widely used. Almost everything else we encrypted already.
+There have been four tries to encrypt DNS:</description>
+    </item>
+    
+  </channel>
+</rss>
