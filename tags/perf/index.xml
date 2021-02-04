@@ -6,18 +6,14 @@
     <description>Recent content in perf on Marko Kevac Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Jun 2014 12:33:00 +0300</lastBuildDate>
-    
-	<atom:link href="http://marko.kevac.org/tags/perf/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 19 Jun 2014 12:33:00 +0300</lastBuildDate><atom:link href="http://marko.kevac.org/tags/perf/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Perf and Stack Traces</title>
       <link>http://marko.kevac.org/posts/perf-and-stack-traces/</link>
       <pubDate>Thu, 19 Jun 2014 12:33:00 +0300</pubDate>
       
       <guid>http://marko.kevac.org/posts/perf-and-stack-traces/</guid>
-      <description>I was wondering why perf record -g don&#39;t show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn&#39;t the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow.</description>
+      <description>I was wondering why perf record -g don&amp;rsquo;t show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn&amp;rsquo;t the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow.</description>
     </item>
     
     <item>

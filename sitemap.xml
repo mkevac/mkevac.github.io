@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://marko.kevac.org/posts/youtube-rss/</loc>
+    <lastmod>2021-02-04T20:57:14+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/</loc>
+    <lastmod>2021-02-04T20:57:14+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/posts/</loc>
+    <lastmod>2021-02-04T20:57:14+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/tags/rss/</loc>
+    <lastmod>2021-02-04T20:57:14+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/tags/</loc>
+    <lastmod>2021-02-04T20:57:14+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://marko.kevac.org/tags/youtube/</loc>
+    <lastmod>2021-02-04T20:57:14+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://marko.kevac.org/tags/dns/</loc>
     <lastmod>2020-01-02T16:44:49+03:00</lastmod>
   </url>
@@ -13,27 +43,12 @@
   </url>
   
   <url>
-    <loc>http://marko.kevac.org/</loc>
-    <lastmod>2020-01-02T16:44:49+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://marko.kevac.org/tags/networking/</loc>
     <lastmod>2020-01-02T16:44:49+03:00</lastmod>
   </url>
   
   <url>
-    <loc>http://marko.kevac.org/posts/</loc>
-    <lastmod>2020-01-02T16:44:49+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://marko.kevac.org/tags/security/</loc>
-    <lastmod>2020-01-02T16:44:49+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://marko.kevac.org/tags/</loc>
     <lastmod>2020-01-02T16:44:49+03:00</lastmod>
   </url>
   

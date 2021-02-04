@@ -6,18 +6,14 @@
     <description>Recent content in gdb on Marko Kevac Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 May 2014 11:15:00 +0300</lastBuildDate>
-    
-	<atom:link href="http://marko.kevac.org/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 02 May 2014 11:15:00 +0300</lastBuildDate><atom:link href="http://marko.kevac.org/tags/gdb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Who&#39;s Calling</title>
       <link>http://marko.kevac.org/posts/whos-calling/</link>
       <pubDate>Fri, 02 May 2014 11:15:00 +0300</pubDate>
       
       <guid>http://marko.kevac.org/posts/whos-calling/</guid>
-      <description>Sometimes your program uses a lot of system time. Let&#39;s say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it&#39;s not always so obvious.
+      <description>Sometimes your program uses a lot of system time. Let&amp;rsquo;s say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it&amp;rsquo;s not always so obvious.
 GDB comes to the rescue. You can use catch syscall &amp;lt;syscall&amp;gt; and it will break when particular syscall is called.</description>
     </item>
     

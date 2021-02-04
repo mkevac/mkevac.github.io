@@ -101,7 +101,7 @@
       <h2 class="subtitle is-6 date">June 19, 2014</h2>
       <h1 class="title"><a href="http://marko.kevac.org/posts/perf-and-stack-traces/">Perf and Stack Traces</a></h1>
       <div class="content">
-        I was wondering why perf record -g don't show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn't the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow.
+        I was wondering why perf record -g don&rsquo;t show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn&rsquo;t the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow.
         
         <a class="button is-link" href="http://marko.kevac.org/posts/perf-and-stack-traces/" style="height:28px">
           Read more
@@ -129,7 +129,7 @@
       <h2 class="subtitle is-6 date">May 2, 2014</h2>
       <h1 class="title"><a href="http://marko.kevac.org/posts/whos-calling/">Who&#39;s Calling</a></h1>
       <div class="content">
-        Sometimes your program uses a lot of system time. Let's say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it's not always so obvious.
+        Sometimes your program uses a lot of system time. Let&rsquo;s say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it&rsquo;s not always so obvious.
 GDB comes to the rescue. You can use catch syscall &lt;syscall&gt; and it will break when particular syscall is called.
         
         <a class="button is-link" href="http://marko.kevac.org/posts/whos-calling/" style="height:28px">

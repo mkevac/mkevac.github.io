@@ -109,13 +109,13 @@
 <p>This tool creates cool looking diagrams of a system workload.</p>
 <p><img src="http://3.bp.blogspot.com/-8xsIoO22Hiw/U2Pa5R2yQSI/AAAAAAAAFls/1Let5ucfV2o/s1600/Screenshot+from+2014-05-02+21:50:12.png" alt="perftimechart"></p>
 <h3 id="perf-sched">perf sched</h3>
-<p>This tool shows you very verbose system scheduler statistics. Including latencies for a particular process. You can see if your server wasn't available because of scheduler.</p>
-<p>I don't know what for, but perf sched can replay previously recorded system load. Maybe it is useful for scheduler development and optimization.</p>
+<p>This tool shows you very verbose system scheduler statistics. Including latencies for a particular process. You can see if your server wasn&rsquo;t available because of scheduler.</p>
+<p>I don&rsquo;t know what for, but perf sched can replay previously recorded system load. Maybe it is useful for scheduler development and optimization.</p>
 <h3 id="perf-mem">perf mem</h3>
 <p>This tool collects memory requests. It can show you whether your memory request was served by CPU cashe or not for example.</p>
 <p><img src="http://1.bp.blogspot.com/-HLz2t-vI4zg/U2PbxzF3_WI/AAAAAAAAFl4/Jwxq1ZMEVAc/s1600/Screenshot+from+2014-05-02+21:40:37.png" alt="perfmem"></p>
 <h3 id="perf-lock">perf lock</h3>
-<p>This tool presumably allows you to collect information about various locks in your process and in the kernel, but it's not working on a last Fedora kernel because it lacks particular option:</p>
+<p>This tool presumably allows you to collect information about various locks in your process and in the kernel, but it&rsquo;s not working on a last Fedora kernel because it lacks particular option:</p>
 <pre><code>$ sudo perf lock record -p 12727
 tracepoint lock:lock_acquire is not enabled. Are CONFIG_LOCKDEP and CONFIG_LOCK_STAT enabled?
 </code></pre>

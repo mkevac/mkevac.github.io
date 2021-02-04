@@ -6,18 +6,14 @@
     <description>Recent content in debugging on Marko Kevac Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Jun 2014 12:33:00 +0300</lastBuildDate>
-    
-	<atom:link href="http://marko.kevac.org/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 19 Jun 2014 12:33:00 +0300</lastBuildDate><atom:link href="http://marko.kevac.org/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Perf and Stack Traces</title>
       <link>http://marko.kevac.org/posts/perf-and-stack-traces/</link>
       <pubDate>Thu, 19 Jun 2014 12:33:00 +0300</pubDate>
       
       <guid>http://marko.kevac.org/posts/perf-and-stack-traces/</guid>
-      <description>I was wondering why perf record -g don&#39;t show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn&#39;t the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow.</description>
+      <description>I was wondering why perf record -g don&amp;rsquo;t show proper stack traces for my programs in production environment. First I thought that kernel was too old, but after performing few experiments I have found out that it wasn&amp;rsquo;t the case. Problem was that when you compile with optimizations (-O3), gcc automatically omits frame pointers. And it is not easy to unwind stack traces without frame pointers. But gcc can do it somehow.</description>
     </item>
     
     <item>
@@ -26,7 +22,7 @@
       <pubDate>Fri, 02 May 2014 11:15:00 +0300</pubDate>
       
       <guid>http://marko.kevac.org/posts/whos-calling/</guid>
-      <description>Sometimes your program uses a lot of system time. Let&#39;s say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it&#39;s not always so obvious.
+      <description>Sometimes your program uses a lot of system time. Let&amp;rsquo;s say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it&amp;rsquo;s not always so obvious.
 GDB comes to the rescue. You can use catch syscall &amp;lt;syscall&amp;gt; and it will break when particular syscall is called.</description>
     </item>
     

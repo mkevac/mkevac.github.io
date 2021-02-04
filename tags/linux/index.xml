@@ -6,11 +6,7 @@
     <description>Recent content in linux on Marko Kevac Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 May 2014 10:05:00 +0300</lastBuildDate>
-    
-	<atom:link href="http://marko.kevac.org/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 02 May 2014 10:05:00 +0300</lastBuildDate><atom:link href="http://marko.kevac.org/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Perf on Latest Linux Kernel</title>
       <link>http://marko.kevac.org/posts/perf-on-latest-linux-kernel/</link>
@@ -28,7 +24,7 @@ perf top Function names are shown correctly and -g parameter is now available. I
       <pubDate>Sat, 02 Feb 2013 10:07:00 +0300</pubDate>
       
       <guid>http://marko.kevac.org/posts/uninterruptible-sleep/</guid>
-      <description>Sometimes you will see processes on your linux box that are in D state as shown by ps, top, htop or similar. D means uninterruptible sleep. As opposed to normal sleep, you can&#39;t do anything with these processes (i.e. kill them). Additional information could be found on LWN.
+      <description>Sometimes you will see processes on your linux box that are in D state as shown by ps, top, htop or similar. D means uninterruptible sleep. As opposed to normal sleep, you can&amp;rsquo;t do anything with these processes (i.e. kill them). Additional information could be found on LWN.
 Usually this means that process is stuck reading or writing something to disk or NFS and remote site does not answer. But not always.</description>
     </item>
     

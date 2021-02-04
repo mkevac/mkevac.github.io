@@ -100,7 +100,7 @@
     <h1 class="title">Who&#39;s Calling</h1>
     
     <div class="content">
-      <p>Sometimes your program uses a lot of system time. Let's say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it's not always so obvious.</p>
+      <p>Sometimes your program uses a lot of system time. Let&rsquo;s say 90%. You fire up your favorite profiling tool and it tells you which system call it is. If you are experiences and maybe lucky, you can say straight away which part of your program is to blame. But it&rsquo;s not always so obvious.</p>
 <p>GDB comes to the rescue. You can use <code>catch syscall &lt;syscall&gt;</code> and it will break when particular syscall is called. And then you can use &lsquo;bt&rsquo; to find where in your code this syscall is being called from.</p>
 <pre><code>(gdb)&gt; catch syscall futex
 
@@ -117,7 +117,7 @@ Catchpoint 1 (call to syscall futex), 0x00007ffff76ce779 in __lll_unlock_wake_pr
 #3  0x000000000040154c in thread_worker (ctx=0x0) at memorytest.c:90
 #4  0x00007ffff7992f33 in start_thread () from /lib64/libpthread.so.0
 #5  0x00007ffff76c0ded in clone () from /lib64/libc.so.6
-</code></pre><p>P.S. Don't use random() in multi-threaded program. Use random_r().</p>
+</code></pre><p>P.S. Don&rsquo;t use random() in multi-threaded program. Use random_r().</p>
 
       
       <div class="related">

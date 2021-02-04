@@ -94,9 +94,9 @@
     <h1 class="title">Uninterruptible Sleep</h1>
     
     <div class="content">
-      <p>Sometimes you will see processes on your linux box that are in D state as shown by ps, top, htop or similar. D means uninterruptible sleep. As opposed to normal sleep, you can't do anything with these processes (i.e. kill them).
+      <p>Sometimes you will see processes on your linux box that are in D state as shown by ps, top, htop or similar. D means uninterruptible sleep. As opposed to normal sleep, you can&rsquo;t do anything with these processes (i.e. kill them).
 Additional information could be found on <a href="http://lwn.net/Articles/288056/">LWN</a>.</p>
-<p>Usually this means that process is stuck reading or writing something to disk or NFS and remote site does not answer. But not always. I'v stumbled upon processes that periodically jump into D state and back. These are processes under heavy network load. Strange.</p>
+<p>Usually this means that process is stuck reading or writing something to disk or NFS and remote site does not answer. But not always. I&rsquo;v stumbled upon processes that periodically jump into D state and back. These are processes under heavy network load. Strange.</p>
 <p>While not been successful in finding out what is going on yet, I would like to share pointers how to dig deeper into these processes.</p>
 <h3 id="ps">ps</h3>
 <p>Familiar tool ps can tell us in what function inside kernel our process is sleeping.</p>

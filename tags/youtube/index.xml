@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>youtube on Marko Kevac Home</title>
+    <link>http://marko.kevac.org/tags/youtube/</link>
+    <description>Recent content in youtube on Marko Kevac Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Feb 2021 20:57:14 +0300</lastBuildDate><atom:link href="http://marko.kevac.org/tags/youtube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to switch from email to RSS for YouTube subscriptions</title>
+      <link>http://marko.kevac.org/posts/youtube-rss/</link>
+      <pubDate>Thu, 04 Feb 2021 20:57:14 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/posts/youtube-rss/</guid>
+      <description>Some time ago YouTube removed the option of receiving new videos from channels that you are subscribed to via email. I loved using email because it was easy to sift through new videos, delete those that are not interested and leave unread those that I want to watch a bit later.
+Unfortunately, I had to start using the YouTube web interface. A Major drawback of using web interface is that you have to check Subscriptions page often (once every few days) or you would lose the threshold between what you already saw and what you did not see.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,10 +6,24 @@
     <description>Recent content in Tags on Marko Kevac Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jan 2020 16:44:49 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 04 Feb 2021 20:57:14 +0300</lastBuildDate><atom:link href="http://marko.kevac.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rss</title>
+      <link>http://marko.kevac.org/tags/rss/</link>
+      <pubDate>Thu, 04 Feb 2021 20:57:14 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/tags/rss/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="http://marko.kevac.org/tags/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>youtube</title>
+      <link>http://marko.kevac.org/tags/youtube/</link>
+      <pubDate>Thu, 04 Feb 2021 20:57:14 +0300</pubDate>
+      
+      <guid>http://marko.kevac.org/tags/youtube/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>dns</title>

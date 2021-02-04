@@ -89,17 +89,17 @@
     
     <div class="content">
       <p>At <a href="https://badoo.com">Badoo</a> we have a distributed system that uses ssh on start to connect to each node and exchange some data.</p>
-<p>Sometimes I've seen ssh fail with error</p>
+<p>Sometimes I&rsquo;ve seen ssh fail with error</p>
 <pre><code>ssh_exchange_identification: read: Connection reset by peer error
-</code></pre><p>Usually, If you see this error, it means that server didn't like your certificate or you were banned from accessing this server.</p>
+</code></pre><p>Usually, If you see this error, it means that server didn&rsquo;t like your certificate or you were banned from accessing this server.</p>
 <p>The best way to debug this problem is to append <code>-vvv</code> while executing ssh client to increase verbosity and to do the same on server.</p>
 <p>If your Linux distribution uses systemd, then the best way to look into sshd logs is <code>journalctl -f</code> command or specifically <code>journalctl -u sshd.service -f</code> command.</p>
 <p>To increase ssd verbosity, edit <code>/etc/ssh/sshd_config</code> and add <code>LogLevel DEBUG3</code> and then restart sshd with command <code>sudo systemctl restart ssd.service</code>.</p>
-<p>Unfortunately, logs didn't show anything useful for me.</p>
+<p>Unfortunately, logs didn&rsquo;t show anything useful for me.</p>
 <p>But I had a hunch that it is somehow connected to the fact that our distributed system makes a lot of ssh connections and very rapidly.</p>
-<p>While browsing trough <code>sshd_config</code> man page I've found config variable that could be to blame. And I was right.</p>
+<p>While browsing trough <code>sshd_config</code> man page I&rsquo;ve found config variable that could be to blame. And I was right.</p>
 <p>If you happen to have the same problem I did, try increasing <code>MaxStartups</code> variable and restarting sshd service.</p>
-<p>I've increased it to 100:30:600 from default 10:30:60 and connection resets vanished.</p>
+<p>I&rsquo;ve increased it to 100:30:600 from default 10:30:60 and connection resets vanished.</p>
 <p>It is unfortunate that ssh and sshd logs gave me no clue about the problem.</p>
 
       
